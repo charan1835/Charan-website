@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirect to YouTube</title>
+  <style>
+    .body{
+        background-image:image(icons/youtube-logo) ;
+    }
+  </style>
+</head>
+<body class="body">
+
+  <button onclick="redirectToYouTube()"><a href="[YES]"> YEs</a>  click here to Redirect to youtube</button>
+
+  <script>
+    function redirectToYouTube() {
+      window.location.href = "https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252F&ec=65620&hl=en&passive=true&service=youtube&uilel=3&ifkv=AeZLP99WDYewyw1MrMN6NNinJg0t5cvUf-jTZhfKTfLaNjUC6CgwCiug7NySicHgob0c1i2ANoSeTA&ddm=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"; 
+    }
+  </script>
+
+</body>
+</html>

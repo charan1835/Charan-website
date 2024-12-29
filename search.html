@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>YouTube-Style Search</title>
+<style>
+body {
+  font-family: Roboto, sans-serif; /* Use Roboto font for a more YouTube-like feel */
+  margin: 0;
+  background-color: #181718; /* Deeper dark gray */
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #242324; /* Slightly darker input background */
+  border-radius: 2px;
+  padding: 5px;
+  width: 600px; /* Adjust width as needed */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+}
+
+.search-input {
+  padding: 10px;
+  border: none;
+  background-color: #242324; 
+  border-radius: 2px;
+  color: #fff;
+  width: 100%; 
+  margin-right: 5px;
+  font-size: 16px; 
+}
+
+.search-button {
+  padding: 10px 15px;
+  background-color: #ff0000; /* YouTube red */
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px; 
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.highlight {
+  background-color: #ffff00; /* YouTube highlight color */
+}
+
+/* Optional: Add some hover effects */
+.search-button:hover {
+  background-color: #c40000; 
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ff0000; 
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>YouTube-Style Search</h1> 
+  <div class="search-bar">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search">
+    <button class="search-button" onclick="searchWithinPage()">Search</button>
+    
+  </div>
+
+  <p class="video-title">
+    Dhop - Lyrical | Game Changer | Ram Charan, Kiara Advani | Thaman S | Shankar
+  </p>
+  <p class="video-title">
+    Game Changer Teaser - Ram Charan | Kiara Advani | Shankar | Dil Raju - Shirish</p>
+
+  </p>
+  <p class="video-title">
+    Game Changer usa event |Ram Charan | Kiara Advani | Shankar | Dil Raju - Shirish</p>
+
+  </p>
+</div>
+
+<script>
+function searchWithinPage() {
+  var searchText = document.getElementById("searchInput").value.toLowerCase();
+  var allParagraphs = document.getElementsByTagName("p");
+  var found = false;
+
+  for (var i = 0; i < allParagraphs.length; i++) {
+    var paragraphText = allParagraphs[i].textContent.toLowerCase();
+    var index = paragraphText.indexOf(searchText);
+
+    if (index > -1) {
+      found = true;
+      var innerHTML = allParagraphs[i].innerHTML;
+      innerHTML = innerHTML.replace(searchText, "<span class='highlight'>" + searchText + "</span>");
+      allParagraphs[i].innerHTML = innerHTML;
+    } else {
+      allParagraphs[i].innerHTML = allParagraphs[i].textContent; // Remove previous highlights
+    }
+  }
+
+  if (!found) {
+    alert("No results found.");
+  }
+}
+function pointToElementIfPresent(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (element) {
+    // If the element exists, scroll into view smoothly
+    element.scrollIntoView({ behavior: 'smooth' });
+
+    // Optionally, add focus to the element
+    element.focus();
+  } else {
+    // Handle the case where the element is not found
+    console.warn(`Element with ID "${elementId}" not found.`);
+  }
+}
+</script>
+
+</body>
+</html>
