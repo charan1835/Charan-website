@@ -324,5 +324,42 @@
         </div>
       </div>
     </div>
+      <script>
+        // Disable right-click context menu
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    // F12 key
+    if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+I or Cmd+Option+I
+    if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.keyCode === 73)) ||
+        (e.metaKey && e.altKey && (e.key === 'I' || e.keyCode === 73))) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+J or Cmd+Option+J
+    if ((e.ctrlKey && e.shiftKey && (e.key === 'J' || e.keyCode === 74)) ||
+        (e.metaKey && e.altKey && (e.key === 'J' || e.keyCode === 74))) {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+C or Cmd+Option+C
+    if ((e.ctrlKey && e.shiftKey && (e.key === 'C' || e.keyCode === 67)) ||
+        (e.metaKey && e.shiftKey && (e.key === 'C' || e.keyCode === 67))) {
+        e.preventDefault();
+        return false;
+    }
+});
+      </script>
   </body>
 </html>
